@@ -1,0 +1,14 @@
+{
+  "resourceName": "s3849e8153",
+  "policyUUID": "849e8153",
+  "bucketName": "cloudsyncappd597334943de4e3ab2ef24b2543e4fe9",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}
