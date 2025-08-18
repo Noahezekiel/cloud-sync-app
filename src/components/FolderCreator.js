@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Storage } from "aws-amplify";
+import { uploadData } from "aws-amplify/storage";
 import "./FolderCreator.css";
 
 function FolderCreator() {
@@ -7,17 +7,25 @@ function FolderCreator() {
 
   const createFolder = async () => {
     if (!folder) return alert("Enter a folder name");
-    await Storage.put(`${folder}/`, ""); // create empty object as folder
-    alert("📁 Folder created!");
+    try {
+      await uploadData({
+        path: `${folder}/.keep`, // create a hidden file to simulate folder
+        data: new Blob([""]),
+      }).result;
+      alert("📁 Folder created!");
+    } catch (error) {
+      console.error("Folder creation error:", error);
+      alert("❌ Failed to create folder");
+    }
   };
 
   return (
     <div className="folder-creator">
-      <input 
-        type="text" 
+      <input
+        type="text"
         placeholder="Enter folder name"
-        value={folder} 
-        onChange={(e) => setFolder(e.target.value)} 
+        value={folder}
+        onChange={(e) => setFolder(e.target.value)}
       />
       <button onClick={createFolder}>Create Folder</button>
     </div>

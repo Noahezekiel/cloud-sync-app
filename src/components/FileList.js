@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Storage } from "aws-amplify";
+import { list, getUrl } from "aws-amplify/storage";
 import "./FileList.css";
 
 function FileList() {
@@ -10,13 +10,21 @@ function FileList() {
   }, []);
 
   const fetchFiles = async () => {
-    const result = await Storage.list("");
-    setFiles(result);
+    try {
+      const { items } = await list({ path: "" });
+      setFiles(items);
+    } catch (error) {
+      console.error("List error:", error);
+    }
   };
 
   const downloadFile = async (key) => {
-    const url = await Storage.get(key);
-    window.open(url);
+    try {
+      const url = await getUrl({ path: key });
+      window.open(url.url); // v6 getUrl returns an object with .url
+    } catch (error) {
+      console.error("Download error:", error);
+    }
   };
 
   return (
@@ -24,8 +32,9 @@ function FileList() {
       <h2>📂 Your Files</h2>
       <ul>
         {files.map((f) => (
-          <li key={f.key}>
-            {f.key} <button onClick={() => downloadFile(f.key)}>Download</button>
+          <li key={f.path}>
+            {f.path}{" "}
+            <button onClick={() => downloadFile(f.path)}>Download</button>
           </li>
         ))}
       </ul>

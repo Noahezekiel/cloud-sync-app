@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Storage } from "aws-amplify";
+import { uploadData } from "aws-amplify/storage";
 import "./FileUpload.css";
 
 function FileUpload() {
@@ -7,8 +7,16 @@ function FileUpload() {
 
   const uploadFile = async () => {
     if (!file) return alert("Please select a file");
-    await Storage.put(file.name, file);
-    alert("✅ File uploaded!");
+    try {
+      await uploadData({
+        path: file.name,
+        data: file,
+      }).result;
+      alert("✅ File uploaded!");
+    } catch (error) {
+      console.error("Upload error:", error);
+      alert("❌ Upload failed!");
+    }
   };
 
   return (

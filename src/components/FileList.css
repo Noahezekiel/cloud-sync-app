@@ -1,0 +1,63 @@
+.file-list {
+  display: grid;
+  gap: 12px;
+}
+
+.file-list h2 {
+  margin: 18px 0 4px;
+  font-size: 18px;
+}
+
+.file-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.file-list li {
+  background: #121826;
+  border: 1px solid #1f2a44;
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  box-shadow: 0 6px 24px rgba(0,0,0,.2);
+}
+
+.file-list .file-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0; /* enable text truncation */
+}
+
+.file-list .file-name {
+  font-weight: 600;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.file-list .actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.file-list .download {
+  border-color: #2b3b59;
+}
+
+.file-list .delete {
+  border-color: #3b2830;
+  background: #23161b;
+}
+.file-list .delete:hover {
+  background: #2b1b22;
+  border-color: #5a3440;
+}
