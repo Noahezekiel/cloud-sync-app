@@ -2,7 +2,17 @@
   "auth": {
     "cloudsyncapp0e7cc59b": {
       "customAuth": false,
-      "dependsOn": [],
+      "dependsOn": [
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "cloudsyncapp0e7cc59bCustomMessage",
+          "triggerProvider": "Cognito"
+        }
+      ],
       "frontendAuthConfig": {
         "mfaConfiguration": "OFF",
         "mfaTypes": [
@@ -25,6 +35,55 @@
       },
       "providerPlugin": "awscloudformation",
       "service": "Cognito"
+    }
+  },
+  "function": {
+    "cloudsyncapp0e7cc59bCustomMessage": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_cloudsyncapp0e7cc59bCustomMessage_EMAILMESSAGE": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "cloudsyncapp0e7cc59bCustomMessage"
+        }
+      ]
+    },
+    "AMPLIFY_function_cloudsyncapp0e7cc59bCustomMessage_EMAILSUBJECT": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "cloudsyncapp0e7cc59bCustomMessage"
+        }
+      ]
+    },
+    "AMPLIFY_function_cloudsyncapp0e7cc59bCustomMessage_REDIRECTURL": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "cloudsyncapp0e7cc59bCustomMessage"
+        }
+      ]
+    },
+    "AMPLIFY_function_cloudsyncapp0e7cc59bCustomMessage_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "cloudsyncapp0e7cc59bCustomMessage"
+        }
+      ]
+    },
+    "AMPLIFY_function_cloudsyncapp0e7cc59bCustomMessage_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "cloudsyncapp0e7cc59bCustomMessage"
+        }
+      ]
     }
   },
   "storage": {

@@ -1,0 +1,114 @@
+/* Sidebar.css - Sidebar styles only */
+
+.sidebar {
+  width: 260px;
+  background: white;
+  border-right: 1px solid #e6edf3;
+  padding: 18px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px dashed #eef2f6;
+}
+
+.avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,#007ee5,#00aaff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 28px;
+  box-shadow: 0 4px 10px rgba(2,6,23,0.08);
+}
+
+.profile-name {
+  font-weight: 700;
+  color: #0f1724;
+}
+
+.profile-email {
+  font-size: 0.85rem;
+  color: #475569;
+}
+
+/* Sidebar navigation buttons */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.nav-item {
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.98rem;
+  color: #0f1724;
+  transition: background 0.15s, transform 0.06s;
+}
+.nav-item:hover {
+  background: #f1f5f9;
+  transform: translateY(-1px);
+}
+.nav-item.active {
+  background: linear-gradient(90deg, rgba(0,126,229,0.12), rgba(0,170,255,0.06));
+  color: #007ee5;
+  font-weight: 700;
+}
+
+/* Sidebar responsive tweaks */
+@media (max-width: 860px) {
+  .sidebar {
+    width: 220px;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    padding: 12px;
+    overflow-x: auto;
+    border-right: none;
+    border-bottom: 1px solid #e6edf3;
+  }
+  .profile {
+    flex-direction: row;
+    gap: 12px;
+    border-bottom: none;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+  .avatar {
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+  }
+  .profile-name {
+    font-size: 0.95rem;
+  }
+  .sidebar-nav {
+    flex-direction: row;
+    gap: 8px;
+    margin-top: 0;
+    align-items: center;
+  }
+  .nav-item {
+    padding: 8px 10px;
+    font-size: 0.92rem;
+    white-space: nowrap;
+  }
+}

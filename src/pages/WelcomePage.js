@@ -1,4 +1,7 @@
+// WelcomePage.js
+
 import React from "react";
+import { Link } from "react-router-dom";
 import "./WelcomePage.css";
 
 const WelcomePage = () => {
@@ -8,8 +11,8 @@ const WelcomePage = () => {
       <nav className="navbar">
         <div className="logo">☁️ Cloud Sync (Mini Dropbox)</div>
         <div className="nav-links">
-          <a href="/login" className="nav-btn">Login</a>
-          <a href="/signup" className="nav-btn signup">Sign Up</a>
+          <Link to="/login" className="nav-btn">Login</Link>
+          <Link to="/signup" className="nav-btn signup">Sign Up</Link>
         </div>
       </nav>
 
@@ -18,8 +21,8 @@ const WelcomePage = () => {
         <h1>Welcome to Cloud Sync</h1>
         <p>Store, sync, and share your files securely in the cloud.</p>
         <div className="hero-buttons">
-          <a href="/signup" className="primary-btn">Get Started</a>
-          <a href="/login" className="secondary-btn">Already have an account?</a>
+          <Link to="/signup" className="primary-btn">Get Started</Link>
+          <Link to="/login" className="secondary-btn">Already have an account?</Link>
         </div>
       </section>
     </div>

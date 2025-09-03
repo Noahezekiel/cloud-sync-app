@@ -9,7 +9,8 @@
       "UnauthRoleName": "amplify-cloudsyncapp-dev-2b520-unauthRole",
       "StackName": "amplify-cloudsyncapp-dev-2b520",
       "StackId": "arn:aws:cloudformation:eu-west-1:535002885853:stack/amplify-cloudsyncapp-dev-2b520/e8c4bcc0-7c2f-11f0-83e5-0ab6f48e0449",
-      "AmplifyAppId": "d2rv2mbjdbkv3q"
+      "AmplifyAppId": "d2rv2mbjdbkv3q",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-cloudsyncapp-dev-2b520-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
     },
     "categories": {
       "auth": {
@@ -17,6 +18,15 @@
       },
       "storage": {
         "s3849e8153": {}
+      },
+      "function": {
+        "cloudsyncapp0e7cc59bCustomMessage": {
+          "REDIRECTURL": "http://localhost:3000/",
+          "EMAILSUBJECT": "Confirm your Cloud Sync App account",
+          "EMAILMESSAGE": "Hello,  ",
+          "deploymentBucketName": "amplify-cloudsyncapp-dev-2b520-deployment",
+          "s3Key": "amplify-builds/cloudsyncapp0e7cc59bCustomMessage-626c396334427874677a-build.zip"
+        }
       }
     }
   }

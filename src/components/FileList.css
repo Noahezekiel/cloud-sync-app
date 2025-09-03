@@ -1,3 +1,4 @@
+
 .file-list {
   display: grid;
   gap: 12px;
@@ -32,7 +33,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  min-width: 0; /* enable text truncation */
+  min-width: 0; 
 }
 
 .file-list .file-name {
@@ -61,3 +62,4 @@
   background: #2b1b22;
   border-color: #5a3440;
 }
+

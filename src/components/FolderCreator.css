@@ -1,23 +1,88 @@
+/* FolderCreator.css - Modern Folder Creator Box */
+
 .folder-creator {
-  background: #121826;
-  border: 1px solid #1f2a44;
+  background: linear-gradient(
+    135deg,
+    #f0f9ff 0%,
+    #e0f2fe 40%,
+    #f8fafc 100%
+  );
+  border: 2px solid #e2e8f0;
   border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.25);
-  padding: 12px;
-  display: grid;
-  gap: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 16px rgba(7, 18, 34, 0.05);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  margin-bottom: 1.5rem;
+}
+
+.folder-creator:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(7, 18, 34, 0.08);
 }
 
 .folder-creator .row {
   display: flex;
   gap: 10px;
-  flex-wrap: wrap;
+  align-items: center;
 }
 
+/* Input box */
 .folder-creator input[type="text"] {
-  flex: 1 1 260px;
+  flex: 1;
+  padding: 0.65rem 0.9rem;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 0.95rem;
+  font-family: "Inter", sans-serif;
+  transition: border 0.2s, box-shadow 0.2s;
 }
 
+.folder-creator input[type="text"]:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25);
+}
+
+/* Button */
 .folder-creator button {
+  background: linear-gradient(90deg, #3b82f6, #2563eb);
+  color: white;
+  border: none;
+  padding: 0.65rem 1.1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.15s;
+}
+
+.folder-creator button:hover {
+  background: linear-gradient(90deg, #2563eb, #1d4ed8);
+  transform: translateY(-1px);
+}
+
+/* Status text */
+.status {
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+/* ✅ success */
+.status:contains("📁") {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+/* ❌ error */
+.status:contains("❌") {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+/* ⏳ progress */
+.status:contains("⏳") {
+  color: #2563eb;
   font-weight: 600;
 }

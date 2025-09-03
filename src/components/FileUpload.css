@@ -1,21 +1,75 @@
+/* FileUpload.css - Cloud-inspired Upload Box */
+
 .file-upload {
-  composes: panel from "../App.css";
-  /* if your bundler doesn't support `composes`, keep both classes: */
-  background: #121826;
-  border: 1px solid #1f2a44;
+  background: linear-gradient(
+    135deg,
+    #f0f9ff 0%,
+    #e0f2fe 40%,
+    #f8fafc 100%
+  ); /* sky blue + soft gray */
+  border: 2px dashed #93c5fd; /* soft blue border */
   border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.25);
-  padding: 14px;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  flex-wrap: wrap;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(7, 18, 34, 0.05);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  position: relative;
 }
 
+.file-upload:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(7, 18, 34, 0.1);
+}
+
+/* File input */
 .file-upload input[type="file"] {
-  max-width: 320px;
+  margin-bottom: 1rem;
+  padding: 0.4rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  color: #1f2937;
 }
 
+/* Upload button */
 .file-upload button {
+  background: linear-gradient(90deg, #3b82f6, #2563eb);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.25s, transform 0.15s;
+}
+
+.file-upload button:hover {
+  background: linear-gradient(90deg, #2563eb, #1d4ed8);
+  transform: translateY(-1px);
+}
+
+/* Status text */
+.status {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+/* ✅ success */
+.status:contains("✅") {
+  color: #16a34a; /* green */
+  font-weight: 600;
+}
+
+/* ❌ error */
+.status:contains("❌") {
+  color: #dc2626; /* red */
+  font-weight: 600;
+}
+
+/* ⏳ progress */
+.status:contains("Uploading") {
+  color: #2563eb; /* blue */
   font-weight: 600;
 }
