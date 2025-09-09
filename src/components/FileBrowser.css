@@ -1,0 +1,55 @@
+.file-browser {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.toolbar h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.toggle-view {
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.toggle-view:hover {
+  background: #e5e7eb;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.view-toggle {
+  display: flex;
+  gap: 8px;
+}
+
+.view-btn {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.view-btn:hover {
+  background: #eee;
+}
+
+.view-btn.active {
+  background: #007bff; /* Dropbox-like blue */
+  color: white;
+  border-color: #007bff;
+  font-weight: bold;
+}
+
+
+

@@ -1,65 +1,131 @@
-
 .file-list {
-  display: grid;
-  gap: 12px;
+  width: 100%;
 }
 
-.file-list h2 {
-  margin: 18px 0 4px;
-  font-size: 18px;
-}
-
-.file-list ul {
+/* Default: list view */
+.file-list.list ul {
   list-style: none;
   padding: 0;
   margin: 0;
   display: grid;
-  gap: 10px;
+  gap: 6px;
 }
 
-.file-list li {
-  background: #121826;
-  border: 1px solid #1f2a44;
-  border-radius: 12px;
-  padding: 12px;
+.file-list.list .file-item {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 10px 14px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  box-shadow: 0 6px 24px rgba(0,0,0,.2);
+  transition: background 0.2s, box-shadow 0.2s;
+  cursor: pointer;
 }
 
-.file-list .file-info {
+.file-list.list .file-item:hover {
+  background: #f9fafb;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* Grid view */
+.file-list.grid ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 14px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.file-list.grid .file-item {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 20px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.file-list.grid .file-item:hover {
+  background: #f9fafb;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.file-info {
   display: flex;
   align-items: center;
   gap: 10px;
-  min-width: 0; 
+  min-width: 0;
 }
 
-.file-list .file-name {
-  font-weight: 600;
+.file-list.grid .file-info {
+  flex-direction: column;
+  gap: 6px;
+}
+
+.file-icon {
+  font-size: 32px;
+  flex-shrink: 0;
+}
+
+.file-name {
+  font-weight: 500;
+  color: #1f2937;
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.file-list .actions {
+.file-list.grid .file-name {
+  white-space: normal;
+  text-overflow: unset;
+}
+
+.file-badge {
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 2px 8px;
+  font-size: 12px;
+  border-radius: 6px;
+  margin-top: 4px;
+}
+
+.actions {
   display: flex;
-  gap: 8px;
-  flex-shrink: 0;
+  gap: 6px;
+  opacity: 0;
+  transition: opacity 0.2s;
 }
 
-.file-list .download {
-  border-color: #2b3b59;
+.file-list.list .file-item:hover .actions {
+  opacity: 1;
 }
 
-.file-list .delete {
-  border-color: #3b2830;
-  background: #23161b;
-}
-.file-list .delete:hover {
-  background: #2b1b22;
-  border-color: #5a3440;
+.file-list.grid .actions {
+  opacity: 1; /* always visible in grid view */
+  justify-content: center;
 }
 
+.actions button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform 0.2s;
+}
+
+.actions button:hover {
+  transform: scale(1.2);
+}
+
+.actions button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
