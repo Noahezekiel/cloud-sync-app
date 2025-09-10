@@ -2,6 +2,90 @@
   width: 100%;
 }
 
+/* 🔍 Toolbar container */
+.filelist-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding: 10px 14px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* 🔎 Search bar */
+.filelist-toolbar input[type="text"] {
+  flex: 1;
+  min-width: 180px;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.filelist-toolbar input[type="text"]:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
+  outline: none;
+}
+
+/* 📁 Create folder group */
+.create-folder {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.create-folder input {
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.create-folder input:focus {
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16,185,129,0.2);
+  outline: none;
+}
+
+.create-folder button {
+  background: #10b981;
+  color: #fff;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.create-folder button:hover {
+  background: #059669;
+  transform: scale(1.05);
+}
+
+.create-folder button:active {
+  transform: scale(0.97);
+}
+
+/* ✅ Status messages */
+.status {
+  margin: 6px 0 14px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+}
+
+/* ----- FILE LIST (already from your code, left intact) ----- */
+
 /* Default: list view */
 .file-list.list ul {
   list-style: none;
@@ -128,4 +212,9 @@
 .actions button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+.folder-name {
+  font-weight: bold;
+  color: #1d4ed8; /* blue-600 like Dropbox */
 }

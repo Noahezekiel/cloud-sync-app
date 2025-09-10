@@ -6,9 +6,13 @@ import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import Home from "./components/Home";
 import ProtectedRoute from "./components/ProtectedRoute";
+import { useTokenRefresher } from "./hooks/useTokenRefresher"; // 👈 token refresher hook
 import "./App.css";
 
 function App() {
+  // 👇 keeps Cognito tokens refreshed automatically
+  useTokenRefresher();
+
   return (
     <Routes>
       {/* Default landing page */}

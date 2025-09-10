@@ -1,45 +1,9 @@
-// import React, { useState } from "react";
-// import { uploadData } from "aws-amplify/storage";
-// import "./FolderCreator.css";
-
-// function FolderCreator() {
-//   const [folder, setFolder] = useState("");
-
-//   const createFolder = async () => {
-//     if (!folder) return alert("Enter a folder name");
-//     try {
-//       await uploadData({
-//         path: `${folder}/.keep`, // create a hidden file to simulate folder
-//         data: new Blob([""]),
-//       }).result;
-//       alert("📁 Folder created!");
-//     } catch (error) {
-//       console.error("Folder creation error:", error);
-//       alert("❌ Failed to create folder");
-//     }
-//   };
-
-//   return (
-//     <div className="folder-creator">
-//       <input
-//         type="text"
-//         placeholder="Enter folder name"
-//         value={folder}
-//         onChange={(e) => setFolder(e.target.value)}
-//       />
-//       <button onClick={createFolder}>Create Folder</button>
-//     </div>
-//   );
-// }
-
-// export default FolderCreator;
-
 // FolderCreator.js
 import React, { useState } from "react";
 import { uploadData } from "aws-amplify/storage";
 import "./FolderCreator.css";
 
-function FolderCreator() {
+function FolderCreator({ refreshFiles }) {   // 👈 accept refreshFiles
   const [folder, setFolder] = useState("");
   const [status, setStatus] = useState("");
 
@@ -50,13 +14,17 @@ function FolderCreator() {
     try {
       setStatus("⏳ Creating folder...");
       await uploadData({
-        path: `${folderName}/.keep`,
-        data: new Blob([""]),
+        key: `uploads/${folderName}/.keep`,   // 👈 put folder under "uploads/"
+        data: "",
       }).result;
-      setStatus("📁 Folder created!");
+
+      setStatus(`📁 Folder "${folderName}" created!`);
       setFolder("");
-    } catch (error) {
-      console.error("Folder creation error:", error);
+      
+      // refresh file list in parent
+      if (refreshFiles) refreshFiles();
+    } catch (err) {
+      console.error("Folder creation error:", err);
       setStatus("❌ Failed to create folder");
     }
   };
