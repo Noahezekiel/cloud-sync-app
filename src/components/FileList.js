@@ -12,8 +12,8 @@ function FileList({
   refreshFiles,
   onFolderOpen,
   currentPath,
-  clipboard,        // ✅ from Home.js
-  setClipboard      // ✅ from Home.js
+  clipboard,        
+  setClipboard      
 }) {
   const [loading, setLoading] = useState(null);
   const [search, setSearch] = useState("");
