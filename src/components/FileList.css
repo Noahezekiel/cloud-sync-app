@@ -216,5 +216,18 @@
 
 .folder-name {
   font-weight: bold;
-  color: #1d4ed8; /* blue-600 like Dropbox */
+  color: #1d4ed8; 
+}
+
+.folder-item {
+  font-weight: bold;
+  color: #1a73e8; 
+}
+
+.folder-item:hover {
+  background-color: #f0f4ff;
+}
+
+.folder-name.clickable {
+  text-decoration: underline;
 }

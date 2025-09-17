@@ -12,8 +12,8 @@ function FileList({
   refreshFiles,
   onFolderOpen,
   currentPath,
-  clipboard,        
-  setClipboard      
+  clipboard,
+  setClipboard
 }) {
   const [loading, setLoading] = useState(null);
   const [search, setSearch] = useState("");
@@ -175,7 +175,7 @@ function FileList({
           {displayedFiles.map((file, idx) => (
             <li
               key={idx}
-              className="file-item"
+              className={`file-item ${file.isFolder ? "folder-item" : ""}`}
               onDoubleClick={() => {
                 if (file.isFolder && onFolderOpen) {
                   onFolderOpen(file.key);
@@ -185,7 +185,11 @@ function FileList({
             >
               <div className="file-info">
                 <span className="file-icon">{getFileIcon(file)}</span>
-                <span className={`file-name ${file.isFolder ? "folder-name" : ""}`}>
+                <span
+                  className={`file-name ${
+                    file.isFolder ? "folder-name clickable" : ""
+                  }`}
+                >
                   {file.name}
                 </span>
               </div>
@@ -203,8 +207,12 @@ function FileList({
                   }}
                   defaultValue=""
                 >
-                  <option value="" disabled>⋮ Actions</option>
-                  {!file.isFolder && <option value="download">⬇️ Download</option>}
+                  <option value="" disabled>
+                    ⋮ Actions
+                  </option>
+                  {!file.isFolder && (
+                    <option value="download">⬇️ Download</option>
+                  )}
                   <option value="copy">📋 Copy</option>
                   <option value="cut">✂️ Cut</option>
                   <option value="delete">🗑️ Delete</option>
